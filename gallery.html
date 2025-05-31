@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gallery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #ffe0f0;
+      font-family: cursive, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      overflow-x: hidden;
+    }
+    nav {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      display: flex;
+      gap: 10px;
+      z-index: 10;
+    }
+    .heart-btn {
+      font-size: 28px;
+      color: #ff9999;
+      text-decoration: none;
+      cursor: pointer;
+      filter: drop-shadow(1px 1px 0 #cc6666);
+      transition: transform 0.2s ease, color 0.2s ease;
+      user-select: none;
+    }
+    .heart-btn:hover {
+      color: #ff4d4d;
+      transform: scale(1.3);
+      filter: drop-shadow(2px 2px 1px #cc3333);
+    }
+    h1 {
+      color: #d147a3;
+      margin-top: 100px;
+      font-size: 2.5em;
+      text-shadow: 1px 1px #a6367d;
+    }
+    .gallery {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 300px;
+      justify-content: center;
+      margin: 40px 0;
+    }
+    .photo-card {
+      background: #fff0f6;
+      border: 2px solid #ffaacc;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      width: 80%;
+      max-width: 600px;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      position: absolute;
+    }
+    .photo-card img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .photo-card p {
+      margin-top: 8px;
+      font-size: 14px;
+      color: #d147a3;
+    }
+    .memory-btn {
+      margin: 10px;
+      padding: 10px 20px;
+      background: #ff99cc;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-family: 'Press Start 2P', cursive;
+      cursor: pointer;
+    }
+    .memory-btn:hover {
+      background: #ff66b2;
+    }
+    .next-btn {
+      margin: 60px auto 30px;
+      display: inline-block;
+      padding: 10px 20px;
+      background: #ff99cc;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-family: 'Press Start 2P', cursive;
+      cursor: pointer;
+      text-decoration: none;
+      position: relative;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="heart-btn" aria-label="Home">❤️</a>
+    <a href="gallery.html" class="heart-btn" aria-label="Gallery">❤️</a>
+    <a href="messages.html" class="heart-btn" aria-label="Messages">❤️</a>
+  </nav>
+
+  <h1>Our Memories Together 💕</h1>
+
+  <div>
+    <button class="memory-btn" onclick="showMemory(0)">Memory 1</button>
+    <button class="memory-btn" onclick="showMemory(1)">Memory 2</button>
+    <button class="memory-btn" onclick="showMemory(2)">Memory 3</button>
+  </div>
+
+  <div class="gallery">
+    <div class="photo-card" id="memory1">
+      <img src="photo12.png" alt="Memory 1">
+      <p>First memory together!</p>
+    </div>
+    <div class="photo-card" id="memory2">
+      <img src="photo13.png" alt="Memory 2">
+      <p>That special day 💖</p>
+    </div>
+    <div class="photo-card" id="memory3">
+      <img src="photo11.png" alt="Memory 3">
+      <p>Cutest smile ever!</p>
+    </div>
+  </div>
+
+  <a class="next-btn" href="messages.html">Next Page: Love</a>
+
+  <script>
+    function showMemory(index) {
+      const memories = ["memory1", "memory2", "memory3"];
+      memories.forEach((id, i) => {
+        const card = document.getElementById(id);
+        card.style.opacity = (i === index) ? 1 : 0;
+        card.style.zIndex = (i === index) ? 1 : 0;
+      });
+    }
+  </script>
+</body>
+</html>
